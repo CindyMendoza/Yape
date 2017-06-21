@@ -6,6 +6,7 @@
    (e)=>{
       // drn = e.data.code;
       // return alert(drn);
+      state.resCreateUser = e;
       return console.log(e);
    },
    "json"

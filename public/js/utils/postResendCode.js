@@ -6,6 +6,7 @@
    (e)=>{
       // drn = e.data.code;
       // return alert(drn);
+      state.resResendCode = e;
       return console.log(e);
    },
    "json"

@@ -50,7 +50,10 @@ const render = (root) => {
 }
 
 const state = {
-  yape: null,
+  resRegisterNumber: null,
+  resResendCode: null,
+  resCreateUser: null,
+  resRegisterCard: null,
   selectedYape: null
 };
 
