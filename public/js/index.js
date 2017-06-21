@@ -1,21 +1,5 @@
 'use strict'
 
-// const render = (root) => {
-//   root.empty();
-//   const wrapper = $('<div class="wrapper"></div>');
-//   wrapper.append(Header(_ => render(root)));
-//   if (state.selectedYape == null) {
-//     wrapper.append(Search(_ => render(root)));
-//     root.append(wrapper);
-//   }else {
-//     const showMap = GoogleMap();
-//     wrapper.append(showMap);
-//     wrapper.append(StationDetails(_ => render(root)));
-//     root.append(wrapper);
-//       showMap.initMap();
-//   }
-// }
-
 const render = (root) => {
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
@@ -26,7 +10,37 @@ const render = (root) => {
       break;
 
     case 1:
-      wrapper.append(validNumber());
+      wrapper.append(validNumber(_ => render(root)));
+      root.append(wrapper);
+      break;
+
+    case 2:
+      wrapper.append(enterYourCode(_ => render(root)));
+      root.append(wrapper);
+      break;
+
+    case 3:
+      wrapper.append(createYourUser(_ => render(root)));
+      root.append(wrapper);
+      break;
+
+    case 4:
+      wrapper.append(youCanUse(_ => render(root)));
+      root.append(wrapper);
+      break;
+
+    case 5:
+      wrapper.append(registerYourDebitCard(_ => render(root)));
+      root.append(wrapper);
+      break;
+
+    case 6:
+      wrapper.append(enterYourPasswordCard(_ => render(root)));
+      root.append(wrapper);
+      break;
+
+    case 7:
+      wrapper.append(lastMoves());
       root.append(wrapper);
       break;
 
@@ -40,29 +54,6 @@ const state = {
   selectedYape: null
 };
 
-// $(function() {
-//   // getJSON('stations.json', (err, json) => {
-//   //
-//   //   if (err) { return alert(err.message);}
-//   //
-//   //   state.yape = json;
-//   //
-//   //   const root = $('.root');
-//   //   render(root);
-//   // });
-//   const root = $('.root');
-//   render(root);
-//
-//   // $.post("api/registerNumber",
-//   // {"phone": 940246971, "terms": true},
-//   // (Obj)=>{ console.log(Obj.data);},
-//   // "json");
-//   // $('.carousel.carousel-slider').carousel({fullWidth: true});
-//   // $('.carousel.carousel-slider').carousel({fullWidth: true});
-//
-//
-//
-// });
 $( document ).ready(function() {
   const root = $('.root');
   render(root);
