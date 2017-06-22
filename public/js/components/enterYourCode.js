@@ -17,26 +17,22 @@ const enterYourCode = (update)=>{
   formCode.append(message);
   divCode.append(formCode);
 
-  inputCode.on("keyup", function(event) {
-    event.preventDefault();
-    if(inputCode.val().length == 6 && /[0-9]/.test(inputCode.val())){
-      // if(inputCode.val() == state.reqRegisterNumber.data.code){
-      //   x=1;
-      //   clearInterval(timer);
-      //   message.text("");
-      //   state.selectedYape = 3;
-      //   update();
-      // }
-      console.log("primer filtro");
-    }else{
-      message.text("Ingrese datos correctos");
-      // state.selectedYape = 2;
-      // update();
-
+  inputCode.on("keypress", function(event) {
+    const tecla = (document.all) ? event.keyCode : event.which;
+    if(inputCode.val() == state.reqRegisterNumber.data.code){
+      message.text(" ");
+      clearInterval(timer);
+      state.selectedYape = 3;
+      update();
+    }else {
+      message.text("Maximo 6 caracteres, del 0 al 9");
+      if (tecla==13) {
+        state.selectedYape = 2;
+        update();
+      };
     }
-
-
   });
+
 
   return divCode;
 
