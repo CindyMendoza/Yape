@@ -1,12 +1,17 @@
 'use strict'
- const postRegisterNumber = (phonex,terms)=>{
-   console.log(phonex);
+ const postRegisterNumber = (phone,terms)=>{
    $.post("api/registerNumber",
-   {"phone":phonex.val(),"terms":terms},
+   {"phone":phone,"terms":terms},
    (e)=>{
-      state.resRegisterNumber = e;
-      return console.log(e.success,e.message,e.data.phone,e.data.terms,e.data.code);
+     state.resRegisterNumber = e
+     if(e.success === null){
+       console.log(e.success,e.message);
+     }else{
+       console.log(e.success,e.message);
+     }
+      return  console.log(state.resRegisterNumber);
+        // console.log(state.resRegisterNumber.success,state.resRegisterNumber.message,state.resRegisterNumber.data.phone,state.resRegisterNumber.data.terms,state.resRegisterNumber.data.code);
    },
    "json"
  );
- }
+ };
