@@ -12,6 +12,7 @@ const createYourUser = (update) => {
   formUser.append(pass);
   formUser.append(btnCreateU);
   divUser.append(formUser);
+
   btnCreateU.on("click", function(event) {
     state.selectedYape = 4;
     update();
