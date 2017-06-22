@@ -1,6 +1,6 @@
 'use strict'
 
-const render = (root) => {
+const render = (root,data) => {
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
   switch (state.selectedYape) {

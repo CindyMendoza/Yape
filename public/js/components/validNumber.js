@@ -3,7 +3,7 @@
 const validNumber = (update) =>{
   let v = 0;
   const divValidNumber = $("<div></div>");
-  const formValidNumber = $("<form></form>");
+  const formValidNumber = $("<form ac></form>");
   const phoneNumber = $("<input type='text' placeholder='Ingrese numero celular'></input>");
   const termsCheckbox = $("<input type='checkbox'>Terminos y condiciones</input>");
   const btnContinue = $("<button type='submit'>Continuar</button>");
@@ -35,24 +35,7 @@ const validNumber = (update) =>{
 
   btnContinue.on("click", function(event) {
     event.preventDefault();
-    postRegisterNumber(phoneNumber.val(),termsCheckbox.prop("checked"));
-
-    // console.log(getRegisterNumber());
-    // dupli.filter(function(e){
-    //   if (e !== pho) {
-    //
-    //   }
-    //   return console.log(e !== phoneNumber.val());;
-    // });
-    // if(phoneNumber.val() !== state.resRegisterNumber.data.phone){
-    //   console.log("pase");
-    // }else {
-    //   console.log("repite");
-    // }
-    // postRegisterNumber(phoneNumber.val(),termsCheckbox.prop("checked"));
-    // if(state.resRegisterNumber){}
-    // state.selectedYape = 2;
-    // update();
+    postRegisterNumber(phoneNumber.val(),termsCheckbox.prop("checked"),update);
   })
 
   return divValidNumber;

@@ -1,15 +1,19 @@
 'use strict'
-  // let drn;
  const postResendCode = (phone)=>{
    $.post("api/resendCode",
    {"phone":phone},
    (e)=>{
-      // drn = e.data.code;
-      // return alert(drn);
-      state.resResendCode = e;
-      return console.log(e);
+     if(e.success === false){
+       alert(e.message);
+     }else{
+       state.reqResendCode = e;
+       state.reqRegisterNumber.data.code = e.data;
+       alert(e.message);
+       alert("Tu nuevo codigo es: " + e.data);
+       console.log(state.reqResendCode);
+     }
+
    },
    "json"
  );
- // return drn;
  }
